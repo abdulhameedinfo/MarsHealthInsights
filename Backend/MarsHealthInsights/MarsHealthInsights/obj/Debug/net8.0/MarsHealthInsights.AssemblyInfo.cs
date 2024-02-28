@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MarsHealthInsights")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a90106b1bf76bd4fbd4ac49135621e5a883a3f4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77f1b73892b8a561f8af25b51de98a971f6b7c1d")]
 [assembly: System.Reflection.AssemblyProductAttribute("MarsHealthInsights")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MarsHealthInsights")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

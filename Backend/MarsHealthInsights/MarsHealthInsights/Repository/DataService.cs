@@ -20,17 +20,11 @@ namespace MarsHealthInsights.Repository
 
             foreach (var item in listCDCDataDTOs.ToList())
             {
-                var CDCDataEntity = ConvertCDCDTOToEntity(item);
-                _dbContext.CDCData.Add((CDCDataEntity)CDCDataEntity);
+                var cdcDataEntity = EntityConverter.ConvertCDCDTOToEntity(item);
+                _dbContext.CDCData.Add(cdcDataEntity);
 
             }
             await _dbContext.SaveChangesAsync();
-        }
-
-        private object ConvertCDCDTOToEntity(CDCDataDTO item)
-        {
-            // Convert the DTO to Entity object
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,22 @@
+using MarsHealthInsights.MyContext;
+using MarsHealthInsights.Repository;
+using Microsoft.Extensions.Configuration;
+using MarsHealthInsights.MyContext;
+using MarsHealthInsights.Repository;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+
+builder.Services.AddScoped<IDataRepository, DataRepository>();
+builder.Services.AddScoped<IDataService, DataService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

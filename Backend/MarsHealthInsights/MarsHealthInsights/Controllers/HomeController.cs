@@ -24,15 +24,20 @@ namespace MarsHealthInsights.Controllers
         [HttpGet(Name = "FetchDataAsync")]
         public async Task FetchDataAsync()
         {
-            // Fetching Data
-            string cdcDataUrl = "https://data.cdc.gov/api/views/qz99-wyhv/rows.json?accessType=DOWNLOAD";
-            IEnumerable<CDCDataDTO> cDCDataDTOs = await _dataRepository.FetchData(cdcDataUrl);
+            try
+            {
+                // Fetching Data
+                string cdcDataUrl = "https://data.cdc.gov/api/views/qz99-wyhv/rows.json?accessType=DOWNLOAD";
+                IEnumerable<CDCDataDTO> cDCDataDTOs = await _dataRepository.FetchData(cdcDataUrl);
 
-            // Data Transformation and Validation
-            // Parse the JSON data, validate it, and transform it as needed
 
-            // Storing Data
-            await _dataService.StoreData(cDCDataDTOs);
+                // Storing Data
+                await _dataService.StoreData(cDCDataDTOs);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in fetching data" + ex.Message);
+            }
         }
     }
 }

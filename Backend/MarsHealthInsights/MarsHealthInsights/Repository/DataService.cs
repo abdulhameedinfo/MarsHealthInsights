@@ -24,6 +24,8 @@ namespace MarsHealthInsights.Repository
                 _dbContext.CDCData.Add(cdcDataEntity);
 
             }
+
+            _dbContext.CDCData.Add(new CDCDataEntity() { Created_at = DateTime.Now, Estimate = "5"});
             await _dbContext.SaveChangesAsync();
         }
     }
